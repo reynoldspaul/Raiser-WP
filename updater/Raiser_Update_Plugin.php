@@ -8,11 +8,17 @@ class Raiser_Update_Plugin {
 	public function __construct() {
 
 		require RAISER_DIR.'/vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
-		$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+
+		add_action( 'plugins_loaded', [$this,'check'], 0 );
+	}
+
+	public function check(){
+
+		Puc_v4_Factory::buildUpdateChecker(
 			'https://github.com/RaiserWeb/Raiser-WP',
-			__FILE__,
+			RAISER_DIR.'/raiser-wp.php',
 			'raiser-wp'
-		);
+		);		
 
 	}
 }

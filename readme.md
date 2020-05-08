@@ -1,80 +1,29 @@
-# Project Title
+# Raiser WP
 
-One Paragraph of project description goes here
+Raiser WP is a WordPress plugin to assist with developing custom WordPress themes.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
 ```
-Give examples
+PHP >= 7.0
+WordPress >= 4.0
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+Download the [latest release](releases) source code zip, and upload to your WordPress plugins directory.
 
-Say what the step will be
+Activate the plugin in your WordPress admin.
 
-```
-Give the example
-```
+### Documentation
 
-And repeat
+Visit our documentation site to get started
 
-```
-until finished
-```
+### Updates
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+All plugin updates will be available to download via your WordPress plugin admin page.
 
 ## License
 
@@ -82,6 +31,10 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Thanks to Andy White at [whoisandywhite](https://whoisandywhite.com/) for continued development support.
+* Thanks to [Advanced Custom Fields](http://advancedcustomfields.com/) for a great WordPress plugin.
+
+### Built With
+
+* [Plugin Update Checker](https://github.com/YahnisElsts/plugin-update-checker) - This is a custom update checker library for WordPress plugins and themes.
+* [Console Component](https://github.com/symfony/console) - The Console component eases the creation of beautiful and testable command line interfaces.
