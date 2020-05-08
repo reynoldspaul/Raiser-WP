@@ -1,20 +1,12 @@
 <?php
 /**
- * The main plugin file.
- *
- * @category     WordPress_Plugin
- * @package      Raiser WP
- * @author       raiserweb.com
- * @license      GPL-2.0+
- * @link         https://raiserweb.com
- *
  * Plugin Name:  Raiser WP
- * Plugin URI:   https://raiserweb.com
+ * Plugin URI:   https://github.com/RaiserWeb/Raiser-WP
  * Description:  Raiser WP is a simple framework to assist with building custom WordPress themes.
  * Author:       raiserweb.com
  * Author URI:   raiserweb.com
  *
- * Version:      1.0.0
+ * Version:      1.0.1
  *
  * Text Domain:  raiser-wp, metaboxes, blocks, fields, options, settings, theme, framework
  * Domain Path:  languages
@@ -44,8 +36,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 class Raiser_WP {
-
-    const RAISER_VER = '1.0.0';
+    
     const RAISER_THEME = '';
     const THEME_CONTENT_FOLDER = 'raiser-wp';
 
@@ -58,6 +49,7 @@ class Raiser_WP {
         }
 
         // include files
+        $this->include(RAISER_DIR.'/updater/Raiser_Update_Plugin.php');
         $this->include(RAISER_DIR.'/framework/base/Raiser_CPT_Base.php');
         $this->include(RAISER_DIR.'/framework/base/Raiser_Tax_Base.php');
         $this->include(RAISER_DIR.'/framework/base/Raiser_Block_Base.php');
