@@ -1,0 +1,23 @@
+<?php get_header(); ?>
+
+<div class="container">
+
+	<?php while ( have_posts() ) : the_post(); ?>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h1><a href="<?php the_permalink();?>"><?php the_title();?></a></h1>
+			</div>
+		</div>
+
+	<?php endwhile; ?>
+
+	<div class="row mt-3 mb-3">
+		<div class="col-sm-12 mx-auto text-center">
+			<?php echo rw_bootstrap_pagination();?>
+		</div>
+	</div>
+
+</div>	
+
+<?php get_footer(); ?>

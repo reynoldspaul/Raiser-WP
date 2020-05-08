@@ -1,0 +1,37 @@
+<?php 
+
+class DummyClass extends Raiser_Taxonomy_Base {
+
+	public $tax_name = 'dummy_tax_name';
+
+	// attach to posts or other object
+	public $object_types = [];
+
+	public $blocks = [];
+
+	public function tax_setup(){
+
+		$this->labels = [
+			'name'                       => 'upper_dummy_tax_name',
+		];
+
+		$this->rewrite = false;
+
+		$this->args = [
+			'hierarchical'               => true,
+			// 'public'                     => true,
+			// 'publicly_queryable'         => false,
+			// 'show_ui'                    => true,
+			// 'meta_box_cb'                => false,
+			// 'show_in_menu'               => true,
+			// 'show_admin_column'          => true,
+			// 'show_in_nav_menus'          => false,
+			// 'show_tagcloud'              => false,
+			// 'show_in_quick_edit'         => true,
+			// 'show_in_rest'               => true,
+		];			
+	}
+
+
+}
+new DummyClass;

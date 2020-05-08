@@ -1,0 +1,41 @@
+<?php
+
+class DummyClass extends Raiser_ACF_G_Block {
+
+	public $block_name = 'dummy_block_name';
+
+	public function init(){
+
+		$this->block_settings = [
+			'title'         => 'upper_dummy_block_name',
+		];
+
+		$this->gutenberg_block = [
+			'name'				=> 'dummy_block_name',
+			'title'				=> 'upper_dummy_block_name',
+			'description'		=> 'A custom dummy_block_name block.',
+			'render_template'	=> get_template_directory().'/raiser-wp/blocks/dummy_block_name/template.php',
+			'category'			=> RAISER_THEME,
+			'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'testimonial', 'testimonials', 'quote' ),
+			'mode' 				=> 'preview',
+		];			
+
+		$this->fields = [
+			[
+				'label' => 'Example',
+				'name' => 'example',
+				'type' => 'text',
+			],
+			//
+		];	
+
+	}	
+
+	public function render_callback($block, $content, $is_preview, $post_id){
+
+		// add attributes to block
+		return $block;
+	}	
+	
+}

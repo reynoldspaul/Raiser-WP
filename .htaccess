@@ -1,0 +1,4 @@
+<FilesMatch  "readme\.txt|composer\.json|composer\.lock|raiser">
+Order Allow,Deny
+Deny from all
+</Files>

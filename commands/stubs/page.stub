@@ -1,0 +1,16 @@
+<?php
+
+class DummyClass extends Raiser_CPT_Base {
+
+	public $post_type = 'page';
+
+	public $template = 'tpl-dummy_post_type_name.php';
+
+	public $with = [
+		'blocks' => [],
+	];
+
+	public $blocks = [];
+
+}
+new DummyClass();

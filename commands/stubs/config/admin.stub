@@ -1,0 +1,65 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | WordPress Admin Bar
+    |--------------------------------------------------------------------------
+    |
+    | Show/hide the WordPress admin bar
+    | https://developer.wordpress.org/reference/hooks/show_admin_bar/
+    |
+    */	
+	'show_admin_bar' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | WordPress Admin Dashboard
+    |--------------------------------------------------------------------------
+    |
+    | Clean up the dashboard
+    | https://developer.wordpress.org/reference/hooks/welcome_panel/
+    |
+    */	
+	'dashboard' => [
+		'show_welcome_panel' => false,
+		'clean_dashboard' => true,
+	],
+
+    /*
+    |--------------------------------------------------------------------------
+    | WordPress Gutenberg Editor
+    |--------------------------------------------------------------------------
+    |
+    | Use/don't use the editor
+    | https://developer.wordpress.org/reference/hooks/use_block_editor_for_post/
+    |
+    */	
+	'gutenberg_editor' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | WordPress Theme Support
+    |--------------------------------------------------------------------------
+    |
+    | Set theme support
+    | https://developer.wordpress.org/reference/functions/add_theme_support/
+    |
+    */	
+	'theme_support' => [
+		'menus',
+		'post-thumbnails',
+	],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Raiser WP Theme Status page
+    |--------------------------------------------------------------------------
+    |
+    | Set the usernames of users who can view the theme status page
+    |
+    */  
+    'theme_status_user_logins' => ['admin'],
+
+];

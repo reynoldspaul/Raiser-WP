@@ -1,0 +1,14 @@
+{
+    "name": "raiserweb/raiser-wp",
+    "type": "wordpress-muplugin",
+    "require-dev": {
+        "symfony/console": "^4.2"
+    },
+    "require": {
+    	"composer/installers": "~1.0",
+        "yahnis-elsts/plugin-update-checker": "^4.9"
+    },
+	"autoload": {
+		"classmap": ["commands"]
+	}    
+}

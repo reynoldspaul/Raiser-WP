@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * upper_dummy_block_name Block Template.
+ *
+ * @param   array $block The block settings and attributes.
+ * @param   string $content The block inner HTML (empty).
+ * @param   bool $is_preview True during AJAX preview.
+ * @param   (int|string) $post_id The post ID this block is saved to.
+ */
+
+?>
+<div id="<?php echo esc_attr($block['block_id']); ?>" class="<?php echo esc_attr($block['block_class']); ?>">
+	<!-- content here -->
+</div>

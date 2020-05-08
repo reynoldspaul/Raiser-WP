@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+require __DIR__ . '/vendor/autoload.php';
+// load wp
+$path_to_file = explode( 'wp-content', __FILE__ );
+require_once($path_to_file[0]."/wp-load.php");
+
+use Symfony\Component\Console\Application;
+
+define('__WP_TEMPLATE_DIR__', get_template_directory() );
+
+$application = new Application();
+
+# add our commands
+// when adding a new class, run composer dump -o
+$application->add(new makeCPT());
+$application->add(new makePage());
+$application->add(new makeTax());
+$application->add(new makeBlock());
+$application->add(new initConfig());
+
+$application->run();

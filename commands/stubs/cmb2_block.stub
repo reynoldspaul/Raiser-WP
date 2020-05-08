@@ -1,0 +1,27 @@
+<?php
+
+class DummyClass extends Raiser_CMB2_Block {
+
+	public $block_name = 'dummy_block_name';
+
+	public function init(){
+
+		$this->box = [
+			'title'         => 'upper_dummy_block_name',
+			'context'       => 'normal',
+			'priority'      => 'high',
+			'show_names'    => true, 
+		];
+
+		$this->fields = [
+			[
+				'id'   => '_example',
+				'name' => 'Example',
+				'type' => 'text',
+			],
+			//
+		];	
+
+	}	
+
+}

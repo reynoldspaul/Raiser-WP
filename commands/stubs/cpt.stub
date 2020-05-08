@@ -1,0 +1,40 @@
+<?php
+
+class DummyClass extends Raiser_CPT_Base {
+
+	public $post_type = 'dummy_post_type_name';
+
+	// eager load
+	public $with = [
+		'terms' => [],
+		'blocks' => [],
+	];
+
+	// attach meta boxes to post edit
+	public $blocks = [];
+
+	// define admin option block
+	public $admin_block = '';
+
+	public function post_type_setup(){
+
+		$this->labels = [
+			'name'                  => 'upper_dummy_post_type_name',
+			'singular_name'         => 'upper_dummy_post_type_name',
+		];
+
+		$this->rewrite = [
+			'slug'                  => 'dummy_post_type_name',
+		];
+
+		$this->args = [
+			'label'                 => 'dummy_post_type_name',
+			'description'           => '',
+			'supports'              => array( 'title', 'editor', 'thumbnail' ),
+			//'show_in_rest' 			=> true, // enable for gutenberg editor			
+		];		
+
+	}	
+
+}
+new DummyClass();

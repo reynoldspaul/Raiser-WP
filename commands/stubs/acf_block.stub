@@ -1,0 +1,24 @@
+<?php
+
+class DummyClass extends Raiser_ACF_Block {
+
+	public $block_name = 'dummy_block_name';
+
+	public function init(){
+
+		$this->block_settings = [
+			'title'         => 'upper_dummy_block_name',
+		];
+
+		$this->fields = [
+			[
+				'label' => 'Example',
+				'name' => 'example',
+				'type' => 'text',
+			],
+			//
+		];	
+
+	}	
+
+}
