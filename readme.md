@@ -13,13 +13,13 @@ WordPress >= 4.0
 
 ### Installing
 
-Download the [latest release](releases) source code zip, and upload to your WordPress plugins directory.
+- Download the [latest release](https://github.com/RaiserWeb/Raiser-WP/releases) source code zip, and upload to your WordPress plugins directory.
 
-Activate the plugin in your WordPress admin.
+- Activate the plugin in your WordPress admin.
 
 ### Documentation
 
-Visit our documentation site to get started
+Visit our [documentation site](https://raiserweb.github.io/Raiser-WP-Docs/) to get started
 
 ### Updates
 
@@ -27,7 +27,7 @@ All plugin updates will be available to download via your WordPress plugin admin
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/RaiserWeb/Raiser-WP/blob/master/LICENSE) file for details
 
 ## Acknowledgments
 
