@@ -1,4 +1,16 @@
-<FilesMatch  "readme\.txt|composer\.json|composer\.lock|raiser">
-Order Allow,Deny
-Deny from all
+<Files composer.json>
+    order allow,deny
+    deny from all
+</Files>
+<Files composer.lock>
+    order allow,deny
+    deny from all
+</Files>
+<Files readme.text>
+    order allow,deny
+    deny from all
+</Files>
+<Files raiser>
+    order allow,deny
+    deny from all
 </Files>

@@ -66,9 +66,10 @@ class Raiser_ACF_Block extends Raiser_Block_Base {
 		foreach( $this->block_settings['fields'] as $index=>$field ){
 
 			if( !isset($field['name']) ){
-				$field['name'] = $this->sanitize_title($field['label']);
+				$field['name'] = $this->sanitize_title($field['label'] ?? 'not_set');
 				$this->block_settings['fields'][$index]['name'] = $field['name'];
-			}
+			} 
+			
 
 			// make field key if not set
 			if( !isset($field['key']) ){
@@ -224,10 +225,17 @@ class Raiser_ACF_Block extends Raiser_Block_Base {
 	}
 
 	public function field_choices($field, $name=''){
+		// options block - remove the prefix
+		if (strpos($this->block_settings['key'], '_options') !== false) {
+			$prefix = $this->sanitize_title($this->block_settings['key']).'_';
+			if (substr($name, 0, strlen($prefix)) == $prefix) {
+			    $name = substr($name, strlen($prefix));
+			}
+		}
 		$choice_method = 'get_'.$name.'_choices';
 		if( method_exists($this, $choice_method)){
 			$field['choices'] = $this->$choice_method();
-		}
+		}		
 		return $field;
 	}
 
