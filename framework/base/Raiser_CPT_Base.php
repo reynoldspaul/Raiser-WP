@@ -92,6 +92,9 @@ class Raiser_CPT_Base {
 		// pre posts hook register
 		$this->pre_get_posts_hook();
 
+		// permalink filter
+		$this->the_permalink();
+
 		do_action( 'raiser_cpt_base_boot', $this );					
 
 	}
@@ -344,4 +347,28 @@ class Raiser_CPT_Base {
 		 
 	}	
 
+	protected function the_permalink(){
+
+		$post_type = $this->post_type;
+
+		if( method_exists($this, 'the_permalink_filter') ){
+
+			add_filter( 'the_permalink', function($permalink, $post)use($post_type) {
+				if($post == 0){
+					global $post;
+				}
+
+			    if ( is_admin() ) {
+			        return $permalink;
+			    }
+
+				if( $post->post_type == $post_type ){
+					return $this->the_permalink_filter($permalink, $post);
+				}
+				return $permalink;
+
+			}, 10, 2 );
+		}
+	}
+	
 }
