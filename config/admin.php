@@ -71,3 +71,21 @@ if( rw_config('admin.theme_support') != null ) {
 		}
 	}
 }
+
+// admin scripts
+if( rw_config('admin.scripts') != null ){
+	add_action( 'admin_enqueue_scripts', function(){
+		foreach( rw_config('admin.scripts') as $name=>$src ){
+			wp_enqueue_script( $name, $src );
+		}
+	});
+}
+
+// admin styles
+if( rw_config('admin.stylesheets') != null ){
+	add_action( 'admin_enqueue_scripts', function(){
+		foreach( rw_config('admin.stylesheets') as $name=>$src ){
+			wp_enqueue_style( $name, $src );
+		}
+	});
+}

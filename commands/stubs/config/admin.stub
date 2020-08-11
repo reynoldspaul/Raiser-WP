@@ -62,4 +62,30 @@ return [
     */  
     'theme_status_user_logins' => ['admin'],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Include scripts
+    |--------------------------------------------------------------------------
+    |
+    | https://developer.wordpress.org/reference/hooks/admin_enqueue_scripts/
+    | 
+    |
+    */  
+    'scripts' => [
+       //'admin_js' => get_template_directory_uri().'/dist/js/admin-acf.js'
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Include styles
+    |--------------------------------------------------------------------------
+    |
+    | https://developer.wordpress.org/reference/hooks/admin_enqueue_scripts/
+    | 
+    |
+    */  
+    'stylesheets' => [
+      // 'admin_css' => get_template_directory_uri().'/dist/css/editor.css'
+    ],    
+
 ];
