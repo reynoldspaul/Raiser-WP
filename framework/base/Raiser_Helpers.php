@@ -45,3 +45,41 @@ function rw_config($attribute){
     }
     return $Raiser_WP->config->get($attribute);
 }
+
+//
+// this function takes a query, and checks if it is of a specefic post type
+// it could be single or archive
+//
+function rw_query_is_post_type($post_type,$query){
+
+        //PREVIOUS LOGIC
+        // archive
+        // (
+        //  ( $query->is_main_query() && $query->is_post_type_archive($post_type) )
+        //  || ( $post_type == 'post' && $query->is_home() )
+        // )
+
+        // OR
+        // // single
+        // (
+        //  $query->is_single() 
+        //  && 
+        //  $query->get('post_type') == $post_type
+        //  || ( $post_type == 'post' && $query->get('post_type') == '' )
+        // )    
+
+        // if(
+        //     $query->is_main_query() && is_post_type_archive( $post_type )
+        //     || ( isset( $query->query_vars['post_type'] ) && $query->query_vars['post_type'] == $post_type )
+        //     || ( ($post_type == 'post' && (isset( $query->query_vars['post_type']) && ($query->query_vars['post_type'] == $post_type || empty( $query->query_vars['post_type'])))) && (is_single() || is_archive() || is_home()) )
+        //  ){    
+
+        if(
+            $query->get('post_type') == $post_type
+            ||
+            ( $query->get('post_type') == '' && $post_type == 'post' && ($query->is_single() || $query->is_archive() || $query->is_home()) )
+        ){
+            return true;
+        }
+        return false;
+}

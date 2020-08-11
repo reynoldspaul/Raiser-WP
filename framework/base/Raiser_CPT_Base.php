@@ -220,11 +220,8 @@ class Raiser_CPT_Base {
 			        return $pieces;
 			    }
 			    
-			 	if(
-			 		$query->is_main_query() && is_post_type_archive( $post_type )
-			 		|| ( isset( $query->query_vars['post_type'] ) && $query->query_vars['post_type'] == $post_type )
-			 		|| ( ($post_type == 'post' && (isset( $query->query_vars['post_type']) && ($query->query_vars['post_type'] == $post_type || empty( $query->query_vars['post_type'])))) && (is_single() || is_archive()) )
-			 	 ){
+			 	if( rw_query_is_post_type( $post_type, $query ) ){
+			 		
 			 		$prefix = "alais_".str_replace('-','_',$tax);
 					$pieces['join'] .= " LEFT JOIN $wpdb->term_relationships ".$prefix."_tr ON ".$prefix."_tr.object_id=$wpdb->posts.ID
 										 LEFT JOIN $wpdb->term_taxonomy ".$prefix."_tt ON ".$prefix."_tt.term_taxonomy_id=".$prefix."_tr.term_taxonomy_id AND ".$prefix."_tt.taxonomy='".$tax."'
@@ -239,10 +236,7 @@ class Raiser_CPT_Base {
 
 			// convert the json terms to array
 			add_action( 'the_posts', function( $posts, $query ) use ($tax, $post_type) {
-				if( 
-					isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == $post_type 
-					|| ( $post_type == 'post' && (is_single() || is_archive()) )
-				){
+				if( rw_query_is_post_type( $post_type, $query ) ){
 					foreach($posts as $index=>$post_object){
 						if( $post_object->post_type == $post_type && isset( $post_object->{$tax.'_term_ids'} ) && !is_array($post_object->{$tax.'_term_ids'}) ){
 							$posts[$index]->{$tax.'_term_ids'} = json_decode($post_object->{$tax.'_term_ids'});
@@ -260,10 +254,7 @@ class Raiser_CPT_Base {
 		$post_type = $this->post_type;
 
 		add_action( 'the_posts', function( $posts, $query ) use ($post_type) {
-			if( 
-				isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == $post_type 
-				|| ( $post_type == 'post' && (is_single() || is_archive()) )
-			){
+			if( rw_query_is_post_type( $post_type, $query ) ){
 				foreach($posts as $index=>$post_object){
 					foreach( $post_object as $key => $val ){
 						$method = 'get_'.$key.'_attribute';
@@ -287,10 +278,7 @@ class Raiser_CPT_Base {
 		}
 
 		add_action( 'the_posts', function( $posts, $query ) use ($post_type, $appends) {
-			if( 
-				isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == $post_type 
-				|| ( $post_type == 'post' && (is_single() || is_archive()) )
-			){
+			if( rw_query_is_post_type( $post_type, $query ) ){
 				foreach($posts as $index=>$post_object){
 					foreach( $appends as $append ){
 						$method = 'get_'.$append.'_append';
@@ -334,10 +322,7 @@ class Raiser_CPT_Base {
 		        return;
 		    }
 
-			if( 
-				$query->is_main_query() && is_post_type_archive( $post_type )
-				|| ( $post_type == 'post' && (is_single() || is_archive()) )
-			){  
+			if( rw_query_is_post_type( $post_type, $query ) ){  
 				if( method_exists($this, 'query_on_archive_page') ){
 					$query = $this->query_on_archive_page($query);
 				}
@@ -370,5 +355,5 @@ class Raiser_CPT_Base {
 			}, 10, 2 );
 		}
 	}
-	
+
 }
