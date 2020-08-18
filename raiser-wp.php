@@ -47,7 +47,10 @@ class Raiser_WP {
         if ( !defined('RAISER_DIR') ) {
             define('RAISER_DIR', trailingslashit( dirname( __FILE__ ) ));
         }
-
+        if ( !defined('__WP_TEMPLATE_DIR__') ) {
+            define('__WP_TEMPLATE_DIR__', get_template_directory() );
+        }
+        
         // include files
         $this->include(RAISER_DIR.'/updater/Raiser_Update_Plugin.php');
         $this->include(RAISER_DIR.'/framework/base/Raiser_CPT_Base.php');

@@ -197,7 +197,8 @@ class Raiser_ACF_Block extends Raiser_Block_Base {
 
 			// add key to field names ('cpt_options')
 			foreach( $this->block_settings['fields'] as $index=>$field ){
-				$this->block_settings['fields'][$index]['name'] = $this->sanitize_title($this->block_settings['key']).'_'.$this->sanitize_title($field['name']);
+				$name = isset($field['name']) ? $field['name'] : $field['label'];
+				$this->block_settings['fields'][$index]['name'] = $this->sanitize_title($this->block_settings['key']).'_'.$this->sanitize_title($name);
 			}			
 
 			return;
