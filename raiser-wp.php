@@ -6,7 +6,7 @@
  * Author:       raiserweb.com
  * Author URI:   raiserweb.com
  *
- * Version:      1.0.7
+ * Version:      1.0.8
  *
  * Text Domain:  raiser-wp, metaboxes, blocks, fields, options, settings, theme, framework
  * Domain Path:  languages
