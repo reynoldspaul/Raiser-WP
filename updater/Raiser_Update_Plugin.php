@@ -7,9 +7,11 @@ class Raiser_Update_Plugin {
 
 	public function __construct() {
 
-		require RAISER_DIR.'/vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
+		if ( ! class_exists( 'Puc_v4_Factory' ) ) {
+			require RAISER_DIR.'/vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
+		}
 
-		add_action( 'plugins_loaded', [$this,'check'], 0 );
+		add_action( 'plugins_loaded', array($this,'check'), 0 );
 	}
 
 	public function check(){
