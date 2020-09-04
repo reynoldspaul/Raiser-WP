@@ -6,7 +6,7 @@
  * Author:       raiserweb.com
  * Author URI:   raiserweb.com
  *
- * Version:      1.0.1
+ * Version:      1.0.7
  *
  * Text Domain:  raiser-wp, metaboxes, blocks, fields, options, settings, theme, framework
  * Domain Path:  languages
@@ -58,7 +58,8 @@ class Raiser_WP {
         $this->include(RAISER_DIR.'/framework/base/Raiser_Block_Base.php');
         $this->include(RAISER_DIR.'/framework/base/blocks/Raiser_ACF_Block.php');
         $this->include(RAISER_DIR.'/framework/base/Raiser_Helpers.php');
-
+        $this->include(RAISER_DIR.'/framework/generator/Raiser_Theme_Generator.php');
+        
          // pro
         $this->include(RAISER_DIR.'/pro/raiser-pro.php');       
 
@@ -87,21 +88,21 @@ class Raiser_WP {
 
         // load content-stucture files from theme       
         foreach(glob(get_template_directory()."/".self::THEME_CONTENT_FOLDER."/**/*.php") as $filename){
-            include $filename;
+            include_once $filename;
         }  
-        foreach(glob(get_template_directory()."/".self::THEME_CONTENT_FOLDER."/blocks/**/*.php") as $filename){
+        foreach(glob(get_template_directory()."/".self::THEME_CONTENT_FOLDER."/blocks/*.php") as $filename){
             if (strpos($filename, '/template.php') !== false) {
                 continue;
             }
-            include $filename;
+            include_once $filename;
         }          
         foreach(glob(get_template_directory()."/".self::THEME_CONTENT_FOLDER."/*.php") as $filename){
-            include $filename;
+            include_once $filename;
         }             
  
         // load init config files
         foreach(glob(RAISER_DIR."/config/*.php") as $filename){
-            include $filename;
+            include_once $filename;
         } 
  
     }

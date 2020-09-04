@@ -96,6 +96,22 @@ return [
 		'footer' => 'Footer Menu',
 	],
 
+     /*
+    |--------------------------------------------------------------------------
+    | Setup key pages
+    |--------------------------------------------------------------------------
+    |
+    | If using, ensure show_on_front is set to 'page'
+    | page_name => page_ID
+    |
+    */  
+    'key_pages' => [
+        //'show_on_front' => 'page',
+        //'page_on_front' => 5,
+        //'page_for_posts' => 4,
+        //'wp_page_for_privacy_policy' => 1,
+    ],   
+
     /*
     |--------------------------------------------------------------------------
     | Login Screen Custom Logo

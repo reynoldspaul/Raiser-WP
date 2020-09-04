@@ -2,8 +2,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 // load wp
-$path_to_file = explode( 'wp-content', __FILE__ );
-require_once($path_to_file[0]."/wp-load.php");
+require_once( __DIR__.'/../../../../wp-load.php' );
 
 use Symfony\Component\Console\Application;
 
@@ -18,5 +17,6 @@ $application->add(new makePage());
 $application->add(new makeTax());
 $application->add(new makeBlock());
 $application->add(new initConfig());
+$application->add(new makeTheme());
 
 $application->run();
