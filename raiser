@@ -2,7 +2,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 // load wp
-require_once( __DIR__.'/../../../../wp-load.php' );
+require_once( __DIR__.'/../../../wp-load.php' );
 
 use Symfony\Component\Console\Application;
 
