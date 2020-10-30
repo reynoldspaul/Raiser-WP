@@ -211,35 +211,13 @@ class Raiser_CPT_Base {
 		foreach( $this->with['terms'] as $tax ){
 
 			$tax = sanitize_text_field($tax);
-			// get the array of term ids
-			add_filter( 'posts_clauses', function( $pieces, $query ) use ($tax, $post_type) {
-				global $wpdb;
 
-				// die early if admin and not ajax
-			    if ( is_admin() && !wp_doing_ajax() ) {
-			        return $pieces;
-			    }
-			    
-			 	if( rw_query_is_post_type( $post_type, $query ) ){
-			 		
-			 		$prefix = "alais_".str_replace('-','_',$tax);
-					$pieces['join'] .= " LEFT JOIN $wpdb->term_relationships ".$prefix."_tr ON ".$prefix."_tr.object_id=$wpdb->posts.ID
-										 LEFT JOIN $wpdb->term_taxonomy ".$prefix."_tt ON ".$prefix."_tt.term_taxonomy_id=".$prefix."_tr.term_taxonomy_id AND ".$prefix."_tt.taxonomy='".$tax."'
-										 LEFT JOIN $wpdb->terms ".$prefix."_t ON ".$prefix."_t.term_id=".$prefix."_tt.term_id";
-					$pieces['fields'] .= ", CONCAT('[',GROUP_CONCAT(DISTINCT ".$prefix."_t.term_id SEPARATOR ','),']') AS `".$tax."_term_ids`";
-					$pieces['groupby'] = "$wpdb->posts.ID";
-
-				}
-
-				return $pieces;
-			}, 10, 2 );
-
-			// convert the json terms to array
 			add_action( 'the_posts', function( $posts, $query ) use ($tax, $post_type) {
-				if( rw_query_is_post_type( $post_type, $query ) ){
-					foreach($posts as $index=>$post_object){
-						if( $post_object->post_type == $post_type && isset( $post_object->{$tax.'_term_ids'} ) && !is_array($post_object->{$tax.'_term_ids'}) ){
-							$posts[$index]->{$tax.'_term_ids'} = json_decode($post_object->{$tax.'_term_ids'});
+				foreach($posts as $index=>$post_object){
+					if( $post_object->post_type == $post_type ){
+						if( $terms = get_the_terms( $post_object , $tax) ){
+							$posts[$index]->{$tax.'_term_ids'} = wp_list_pluck( $terms, 'term_id' );
+							$posts[$index]->{$tax.'_terms'} = $terms;
 						}
 					}
 				}

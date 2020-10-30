@@ -136,6 +136,13 @@ class Raiser_ACF_Block extends Raiser_Block_Base {
 	}
 
 	public function prepare_repeater_sub_field($field){
+		
+		// another block class
+		if( !is_array($field['sub_fields']) && is_callable($field['sub_fields'], 'init') ){
+			// get the fields form the class (dont hook_up)
+			$block = new $field['sub_fields']([],[],false);
+			$field['sub_fields'] = $block->block_settings['fields'];
+		}	
 
 		// array to define the block
 		foreach( $field['sub_fields'] as $sub_field_index=>$sub_field ){
