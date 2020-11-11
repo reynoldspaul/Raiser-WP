@@ -59,6 +59,11 @@ if( rw_config('theme.scripts') != null ){
 					wp_localize_script( $name, $handle, $localize );
 				}
 			}
+			if( isset($script['inline']) ){
+				foreach( $script['inline'] as $inline ){
+					wp_add_inline_script( $name, $inline['data'], isset($inline['position']) ? $inline['position'] : 'after' );
+				}
+			}			
 		}
 	});
 
