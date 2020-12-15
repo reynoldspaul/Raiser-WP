@@ -119,4 +119,6 @@ class Raiser_WP {
 
 }
 // the plugin
-$Raiser_WP = new Raiser_WP;
+if( !wp_installing() ){
+    $Raiser_WP = new Raiser_WP;
+}
