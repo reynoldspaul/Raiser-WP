@@ -19,7 +19,7 @@ WordPress >= 4.0
 
 ### Documentation
 
-Visit our [documentation site](https://raiserweb.github.io/Raiser-WP-Docs/) to get started
+Visit our [documentation site]([https://raiserweb.github.io/Raiser-WP-Docs/](https://reynoldspaul.github.io/Raiser-WP-Docs/docs/generator)) to get started
 
 ### Updates
 
